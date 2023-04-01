@@ -15,7 +15,7 @@ const openai = new Hono();
 
 users.get("/", controller.users.get_all);
 users.post("/", controller.users.add);
-users.delete("/", controller.users.delete);
+users.delete("/:id", controller.users.delete);
 users.post("/:id/reset", controller.users.reset);
 
 keys.get("/", controller.keys.get_all);
