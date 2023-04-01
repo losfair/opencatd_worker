@@ -116,7 +116,9 @@ export const keys: Record<string, Handler> = {
         const item = x.value as Key;
         const match = openaiKeyRegex.exec(item.key);
         if (match) {
-          item.key = `sk-${Array(match[1]).fill("0").join("")}${match[2]}`;
+          item.key = `sk-${Array(match[1].length).fill("0").join("")}${
+            match[2]
+          }`;
         }
         return item;
       }),
