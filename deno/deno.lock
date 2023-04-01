@@ -20,6 +20,7 @@
     "https://deno.land/x/hono@v3.1.5/context.ts": "b8d8331238af89feb509a5ece6111bb72ef60509bd3936c2f5d49322c44f3d31",
     "https://deno.land/x/hono@v3.1.5/hono.ts": "a85789f0332dcaeaed1a2b81fbc766ca4bcfc3fb3109f9d8de6fec61c750b61d",
     "https://deno.land/x/hono@v3.1.5/http-exception.ts": "e74a5e8504ecf795e9babdc2bab9d4052e1806a7396efc89f8e1ed83e813e3be",
+    "https://deno.land/x/hono@v3.1.5/middleware/logger/index.ts": "281b0fe431183a5d7b8d576645370efbd2737aeefaac7dc989d1c90dc03c52c0",
     "https://deno.land/x/hono@v3.1.5/mod.ts": "2a77e5929d012023a40ee6914c2309e9a23f69a5784b5d0a377cd6fbc55c8266",
     "https://deno.land/x/hono@v3.1.5/request.ts": "93b7dae721b5e77141d082d8091c8cd833690afc6b9fa72417cb00cecaac7b50",
     "https://deno.land/x/hono@v3.1.5/router.ts": "21448bc2e6019574c10fae11237da4367037fa107e68bf3d049cd2fd0efd2adb",
