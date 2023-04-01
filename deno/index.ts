@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import controller from "./controller.ts";
 import { serve } from "https://deno.land/std@0.182.0/http/server.ts";
+import { logger } from "hono/middleware/logger/index.ts";
 
 const app = new Hono();
 const middleware = {
@@ -27,6 +28,8 @@ openai.use("/*", controller.openai.proxy);
 
 middleware.root.use("*", controller.auth.root);
 middleware.openai.use("*", controller.auth.openai);
+
+app.use("*", logger());
 
 app.post("/1/users/init", controller.users.init);
 
