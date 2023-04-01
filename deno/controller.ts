@@ -107,10 +107,19 @@ export const users: Record<string, Handler> = {
   },
 };
 
+const openaiKeyRegex = /^sk-([0-9a-zA-Z]+)([0-9a-zA-Z]{4})$/;
+
 export const keys: Record<string, Handler> = {
   async get_all(ctx) {
     return ctx.json(
-      (await collect(kv.list({ prefix: ["key", "id"] }))).map((x) => x.value),
+      (await collect(kv.list({ prefix: ["key", "id"] }))).map((x) => {
+        const item = x.value as Key;
+        const match = openaiKeyRegex.exec(item.key);
+        if (match) {
+          item.key = `sk-${Array(match[1]).fill("0").join("")}${match[2]}`;
+        }
+        return item;
+      }),
     );
   },
   async add(ctx) {
