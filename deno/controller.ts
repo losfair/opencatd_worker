@@ -235,6 +235,7 @@ export const auth: Record<string, MiddlewareHandler> = {
 
     const existed = users.find((user) => (user.value as User).token === token);
     if (existed) {
+      console.log(existed);
       return next();
     } else {
       return ctx.json({ error: "Unauthorized" }, 401);
