@@ -231,15 +231,9 @@ export const auth: Record<string, MiddlewareHandler> = {
 
     const token = auth.slice(7);
 
-    const userEntry = await kv.get(["user", "id", 0]);
-    const user = userEntry.value as User | null;
+    const users = await collect(kv.list({ prefix: ["user", "id"] }));
 
-    if (!user) {
-      return ctx.json({ error: "Unauthorized" }, 401);
-    }
-
-    const existed = token === user.token;
-
+    const existed = users.find((user) => (user.value as User).token === token);
     if (existed) {
       return next();
     } else {
